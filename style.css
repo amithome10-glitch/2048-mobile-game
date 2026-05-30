@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  height: 100%;
+  background: #faf8ef;
+  font-family: 'Arial Rounded MT Bold', 'Helvetica Neue', Arial, sans-serif;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px 12px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 56px;
+  font-weight: 900;
+  color: #776e65;
+  line-height: 1;
+}
+
+.scores {
+  display: flex;
+  gap: 8px;
+}
+
+.score-box {
+  background: #bbada0;
+  border-radius: 6px;
+  padding: 8px 16px;
+  text-align: center;
+  min-width: 72px;
+}
+
+.score-label {
+  color: #eee4da;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.score-value {
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  min-width: 40px;
+}
+
+.subtitle {
+  color: #776e65;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn {
+  background: #8f7a66;
+  color: #f9f6f2;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 22px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.15s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.btn:active {
+  background: #6d5c4e;
+}
+
+.btn-undo {
+  background: #bbada0;
+}
+
+.btn-undo:active {
+  background: #a09080;
+}
+
+.board-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+
+.board {
+  background: #bbada0;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 10px;
+  width: 100%;
+  aspect-ratio: 1;
+  touch-action: none;
+}
+
+.cell {
+  background: rgba(238, 228, 218, 0.35);
+  border-radius: 6px;
+  aspect-ratio: 1;
+}
+
+.tile {
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: clamp(18px, 5vw, 36px);
+  transition: transform 0.1s ease;
+  aspect-ratio: 1;
+  animation: appear 0.15s ease;
+}
+
+@keyframes appear {
+  0% { transform: scale(0); }
+  80% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.merge-anim {
+  animation: merge 0.2s ease;
+}
+
+@keyframes merge {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.tile-2    { background: #eee4da; color: #776e65; }
+.tile-4    { background: #ede0c8; color: #776e65; }
+.tile-8    { background: #f2b179; color: #f9f6f2; }
+.tile-16   { background: #f59563; color: #f9f6f2; }
+.tile-32   { background: #f67c5f; color: #f9f6f2; }
+.tile-64   { background: #f65e3b; color: #f9f6f2; }
+.tile-128  { background: #edcf72; color: #f9f6f2; font-size: clamp(15px, 4vw, 30px); }
+.tile-256  { background: #edcc61; color: #f9f6f2; font-size: clamp(15px, 4vw, 30px); }
+.tile-512  { background: #edc850; color: #f9f6f2; font-size: clamp(15px, 4vw, 30px); }
+.tile-1024 { background: #edc53f; color: #f9f6f2; font-size: clamp(12px, 3.5vw, 26px); }
+.tile-2048 { background: #edc22e; color: #f9f6f2; font-size: clamp(12px, 3.5vw, 26px); }
+.tile-super { background: #3c3a32; color: #f9f6f2; font-size: clamp(10px, 3vw, 22px); }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(238, 228, 218, 0.85);
+  border-radius: 10px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.overlay.show {
+  display: flex;
+}
+
+.overlay-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.overlay-title {
+  font-size: 36px;
+  font-weight: 900;
+  color: #776e65;
+}
+
+.overlay-score {
+  font-size: 18px;
+  color: #776e65;
+}
+
+.hint {
+  margin-top: 14px;
+  color: #bbada0;
+  font-size: 13px;
+  text-align: center;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#faf8ef" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>2048</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="title">2048</div>
+      <div class="scores">
+        <div class="score-box">
+          <div class="score-label">SCORE</div>
+          <div class="score-value" id="score">0</div>
+        </div>
+        <div class="score-box">
+          <div class="score-label">BEST</div>
+          <div class="score-value" id="best">0</div>
+        </div>
+      </div>
+    </div>
+    <div class="subtitle">Join tiles, get to <strong>2048!</strong></div>
+    <div class="controls">
+      <button class="btn" id="newGameBtn">New Game</button>
+      <button class="btn btn-undo" id="undoBtn">↩ Undo</button>
+    </div>
+    <div class="board-wrapper">
+      <div class="board" id="board"></div>
+      <div class="overlay" id="overlay">
+        <div class="overlay-content">
+          <div class="overlay-title" id="overlayTitle"></div>
+          <div class="overlay-score" id="overlayScore"></div>
+          <button class="btn" id="overlayBtn">Play Again</button>
+        </div>
+      </div>
+    </div>
+    <div class="hint">Swipe to move tiles</div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
